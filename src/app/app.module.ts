@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SignupComponent } from './components/unprotected/signup/signup.component';
 import { SigninComponent } from './components/unprotected/signin/signin.component';
 import { ProtectedComponent } from './components/protected/protected.component';
+import {routing} from "./routes/app.routes";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProtectedComponent } from './components/protected/protected.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
