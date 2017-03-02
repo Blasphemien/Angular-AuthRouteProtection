@@ -7,13 +7,15 @@ import { AppComponent } from './components/app/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SignupComponent } from './components/unprotected/signup/signup.component';
 import { SigninComponent } from './components/unprotected/signin/signin.component';
+import { ProtectedComponent } from './components/protected/protected.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
