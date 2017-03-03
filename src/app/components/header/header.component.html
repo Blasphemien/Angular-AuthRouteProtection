@@ -16,5 +16,8 @@
         <a class="nav-link" [routerLink]="['protected']">Protected</a>
       </li>
     </ul>
+    <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated()">
+      <li><a (click)="onLogOut()" style="cursor: pointer">Logout</a></li>
+    </ul>
   </div>
 </nav>

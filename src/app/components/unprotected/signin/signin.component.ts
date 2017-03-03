@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-signin',
@@ -12,17 +13,16 @@ export class SigninComponent implements OnInit {
   error = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
-  onSignin() {
-
+  onSignIn() {
+    this.authService.signInUser(this.myForm.value);
   }
 
-  ngOnInit():any {
+  ngOnInit(): any {
     this.myForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
-
 }
