@@ -10,6 +10,7 @@ import { SigninComponent } from './components/unprotected/signin/signin.componen
 import { ProtectedComponent } from './components/protected/protected.component';
 import {routing} from "./routes/app.routes";
 import {AuthService} from "./services/auth.service";
+import {AuthGuard} from "./routes/auth.guard";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {AuthService} from "./services/auth.service";
     ReactiveFormsModule,
     routing
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              AuthGuard]
   bootstrap: [AppComponent]
 })
 export class AppModule { }
