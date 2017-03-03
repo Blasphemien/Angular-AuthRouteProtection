@@ -32,6 +32,8 @@ export class SignupComponent implements OnInit {
       password: ['', Validators.required],
       confirmPassword: ['', Validators.compose([
         Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(100),
         this.isEqualPassword.bind(this)
       ])],
     });

@@ -6,12 +6,18 @@
     <div class="col-sm-10">
       <input type="email" class="form-control" id="inputPassword" placeholder="Email: example@example.com" formControlName="email">
       <!--<span *ngIf="!email.pristine && email.errors != null && email.errors['noEmail']">Invalid mail address</span>-->
+      <div class="alert alert-danger" role="alert" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].dirty">
+        <strong>Oh snap!</strong> Check your email and try again.
+      </div>
     </div>
   </div>
   <div class="form-group row">
     <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].dirty">
+        <strong>Oh snap!</strong> Password must be atleast 6 characters
+      </div>
     </div>
   </div>
   <div class="form-group row">
@@ -19,6 +25,9 @@
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" formControlName="confirmPassword">
       <!--<span *ngIf="!confirmPassword.pristine && confirmPassword.errors != null && confirmPassword.errors['passwordsNotMatch']">Passwords do not match</span>-->
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['confirmPassword'].dirty && myForm.controls['confirmPassword'].hasError('passwordsNotMatch')">
+        <strong>Oh snap!</strong> Passwords do not match.
+      </div>
     </div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Sign Up</button>
