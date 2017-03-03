@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
+import {User} from "../../../models/User";
+import {AuthService} from "../../../services/auth.service";
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,11 +15,13 @@ export class SignupComponent implements OnInit {
   error = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+
   }
 
   onSignup() {
-
+    this.authService.signupUser(this.myForm.value);
+    console.log('saved');
   }
 
   ngOnInit(): any {
@@ -32,6 +37,8 @@ export class SignupComponent implements OnInit {
       ])],
     });
   }
+
+
 
   isEmail(control: FormControl): {[s: string]: boolean} {
     if (!control.value.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {

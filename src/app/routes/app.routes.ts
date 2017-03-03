@@ -8,7 +8,7 @@ import {ProtectedComponent} from "../components/protected/protected.component";
  */
 
 export const APP_ROUTES: Routes = [
-  {path: '', redirectTo: '/signup', pathMatch: 'full'},
+  {path: '', redirectTo: '/signin', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'protected', component: ProtectedComponent}
