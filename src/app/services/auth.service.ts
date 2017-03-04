@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {User} from '../models/User';
 import {FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 declare const firebase: any;
 
 @Injectable()
 export class AuthService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   signupUser(user: User){
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch((error) => {
@@ -32,6 +33,8 @@ export class AuthService {
 
   logOut() {
     firebase.auth().signOut();
+
+    this.router.navigate(['/signin']);
   }
 
   isAuthenticated() {

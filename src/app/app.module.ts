@@ -29,7 +29,7 @@ import {AuthGuard} from "./routes/auth.guard";
     routing
   ],
   providers: [AuthService,
-              AuthGuard]
+              AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
